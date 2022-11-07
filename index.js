@@ -12,6 +12,10 @@ const io = require("socket.io")(server, {
 
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.send('Hi from server')
+})
+
 let playersInitialData = {
   playerOneHands: {
     isRock: false,
