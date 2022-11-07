@@ -10,9 +10,12 @@ const io = require("socket.io")(server, {
     }
   });
 
-app.use(cors())
+const corsOptions = {
+  origin: 'https://rock-paper-scissor-game-five.vercel.app/',
+  optionsSuccessStatus: 200
+}
 
-app.get('/', (req, res) => {
+app.get('/', cors(corsOptions), (req, res) => {
   res.send('Hi from server')
 })
 
